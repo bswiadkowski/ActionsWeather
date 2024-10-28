@@ -1,0 +1,25 @@
+name: check weather
+
+on:
+    # push:
+
+    schedule:
+        - cron: '*/10 * * * *' #runs every 10 minutes
+
+jobs:
+    build:
+        runs-on: ubunutu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v5
+              with:
+                python-version: '3.12' 
+            # - run: python my_script.py
+
+            - name: install python packages
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+
+            - name: execute script
+              run: python main.py
