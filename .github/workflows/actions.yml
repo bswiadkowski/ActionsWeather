@@ -25,9 +25,6 @@ jobs:
             - name: execute script
               run: python main.py
 
-    Commit:
-        runs-on: ubuntu-latest
-        steps:
             - name: commit files
               run: |
                 git config --local user.email "action@github.com"
